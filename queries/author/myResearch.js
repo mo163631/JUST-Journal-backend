@@ -1,5 +1,5 @@
 import express from "express";
-import pool from "../general/db.js";
+import pool from "../creatDatabase/db.js";
 
 const myResearch = express.Router();
 //ارجاع الاباحث التي تم نشرها

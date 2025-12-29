@@ -1,5 +1,5 @@
 import express from "express";
-import pool from "../db.js"
+import pool from "../../creatDatabase/db.js";
 const information = express.Router();
 
 //ارجاع سجل المستخدم لي عرضها على صفحة البروفايل
@@ -26,7 +26,6 @@ information.get("/:userId", async (req, res) => {
       message: "User profile fetched successfully",
       data: users[0],
     });
-
   } catch (error) {
     console.error("Fetch user profile error:", error);
     res.status(500).json({

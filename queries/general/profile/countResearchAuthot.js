@@ -1,5 +1,5 @@
 import express from "express";
-import pool from "../db.js";
+import pool from "../../creatDatabase/db.js";
 
 const countResearchAuthot = express.Router();
 //ارجاع احصائيات المستخدم
@@ -20,7 +20,6 @@ countResearchAuthot.get("/:authorId", async (req, res) => {
       message: "Total papers fetched successfully",
       total_papers: result[0].total_papers,
     });
-
   } catch (error) {
     console.error("Count papers error:", error);
     res.status(500).json({

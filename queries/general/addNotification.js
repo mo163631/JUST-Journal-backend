@@ -1,4 +1,4 @@
-import pool from "./db.js";
+import pool from "../creatDatabase/db.js";
 //لي ارسال اشعار
 function addNotification(connection, userId, title, message) {
   const sql =

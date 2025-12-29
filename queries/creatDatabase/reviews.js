@@ -1,4 +1,4 @@
-import pool from "../general/db.js";
+import pool from "./db.js";
 
 async function createReviewsTable() {
   const connection = await pool.getConnection();

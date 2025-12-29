@@ -1,5 +1,5 @@
 import express from "express";
-import pool from "../general/db.js";
+import pool from "../creatDatabase/db.js";
 
 const getResearch = express.Router();
 
@@ -27,7 +27,6 @@ getResearch.get("/", async (req, res) => {
       message: "Unassigned researches fetched successfully",
       data: researches,
     });
-
   } catch (error) {
     console.error("Fetch unassigned researches error:", error);
     res.status(500).json({

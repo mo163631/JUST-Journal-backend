@@ -1,9 +1,9 @@
 import express from "express";
-import pool from "../general/db.js";
+import pool from "../creatDatabase/db.js";
 
 const getReviewedResearches = express.Router();
 
-//لي ارجاع الابحاث التي تم تقيمها لي تحديد القرار النهائي 
+//لي ارجاع الابحاث التي تم تقيمها لي تحديد القرار النهائي
 getReviewedResearches.get("/", async (req, res) => {
   const connection = await pool.getConnection();
 
@@ -30,7 +30,6 @@ getReviewedResearches.get("/", async (req, res) => {
       message: "Reviewed researches fetched successfully",
       data: researches,
     });
-
   } catch (error) {
     console.error("Fetch reviewed researches error:", error);
     res.status(500).json({

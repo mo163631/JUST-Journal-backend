@@ -1,5 +1,5 @@
 import express from "express";
-import pool from "../general/db.js";
+import pool from "../creatDatabase/db.js";
 
 const getReviewers = express.Router();
 
@@ -20,7 +20,6 @@ getReviewers.get("/", async (req, res) => {
       message: "Reviewers fetched successfully",
       data: reviewers,
     });
-
   } catch (error) {
     console.error("Fetch reviewers error:", error);
     res.status(500).json({

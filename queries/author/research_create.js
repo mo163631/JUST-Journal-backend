@@ -198,7 +198,7 @@
 // export default research_create;
 
 import express from "express";
-import pool from "../general/db.js";
+import pool from "../creatDatabase/db.js";
 import addNotification from "../general/addNotification.js";
 
 const research_create = express.Router();

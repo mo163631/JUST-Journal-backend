@@ -1,9 +1,9 @@
 import express from "express";
-import pool from "../general/db.js";
+import pool from "../creatDatabase/db.js";
 import addNotification from "../general/addNotification.js";
 
 const addRating = express.Router();
-//هو الreviwer بضيف للبحث قراره و اذا كان في تعليق على البحث يمكن كتابته 
+//هو الreviwer بضيف للبحث قراره و اذا كان في تعليق على البحث يمكن كتابته
 // بعد التقيم يتم تحديث حالة البحث الى reviewed
 
 addRating.post("/", async (req, res) => {
@@ -73,7 +73,6 @@ addRating.post("/", async (req, res) => {
       message: "Rating added and research marked as reviewed",
       rating_id: newRatingId,
     });
-
   } catch (error) {
     await connection.rollback();
     console.error("Transaction error:", error);

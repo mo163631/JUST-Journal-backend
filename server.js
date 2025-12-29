@@ -21,6 +21,8 @@ import getReviewedResearches from "./queries/editor/getReviewedResearches.js"
 import updateStatusResearch from "./queries/editor/finalDecision.js"
 import authorPromotion from "./queries/editor/authorPromotion.js"
 import viewNotifications from "./queries/general/viewNotifications.js";
+import journalStats from "./queries/general/journalStats.js"
+import updateProfilePhoto from "./queries/general/profile/updateProfilePhoto.js"
 
 
 const app = express();
@@ -35,6 +37,7 @@ app.use("/login", login);//login
 app.use("/createUser", createUser);//sinUp
 app.use("/postedResearches", postedResearches);// الابحاث الموافق على نشرها لي تم عرضها على الصفحه
 app.use("/viewNotifications",viewNotifications);// مشاهده الشعارات
+app.use("/journalStats",journalStats);// احصاءيات عامة للمجله
 //author
 app.use("/create-research", research_create);// انشاء بحث
 app.use("/myResearch", myResearch);// عرض ابحاثي
@@ -58,6 +61,7 @@ app.use("/updateStatusResearch", updateStatusResearch);// اعطاء قرار ن
 app.use("/information", information);// معلومات لي يتم عرضها
 app.use("/countResearchAuthot", countResearchAuthot);// اعحصائات كم بحث رفع
 app.use("/countPublishedResearch", countPublishedResearch);// احصائيات كم بحث تم نشره
+app.use("/updateProfilePhoto",updateProfilePhoto);// هون بضيف صوره المستخدم او بغيرها
 
 app.listen(8080, () => {
   console.log("I am listening in port 8080");
