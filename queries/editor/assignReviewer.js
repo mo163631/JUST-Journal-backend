@@ -40,7 +40,7 @@ assignReviewer.put("/", async (req, res) => {
       connection,
       reviewer_id,
       "New Research Assigned",
-      `You have been assigned to review the research with ID ${research_id}.`
+      "You have been assigned to review a new research paper."
     );
 
     await connection.commit();

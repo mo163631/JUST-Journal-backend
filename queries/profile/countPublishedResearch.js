@@ -1,5 +1,5 @@
 import express from "express";
-import pool from "../../creatDatabase/db.js";
+import pool from "../creatDatabase/db.js";
 
 const countPublishedResearch = express.Router();
 //ارجاع احصائيات المستخدم

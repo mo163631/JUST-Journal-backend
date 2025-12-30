@@ -63,7 +63,7 @@ addRating.post("/", async (req, res) => {
         connection,
         editor.id,
         "Research Reviewed",
-        `The research with ID ${research_id} has been reviewed by a reviewer.`
+        "A reviewer has completed the review of the research paper."
       );
     }
 

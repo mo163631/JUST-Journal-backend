@@ -25,7 +25,7 @@ updateStatusResearch.put("/:paperId", async (req, res) => {
     const [result] = await connection.query(query, [status, paperId]);
 
     const authors = await connection.query(
-      "SELECT author_id FROM reviews WHERE research_id = ?",
+      "SELECT author_id , FROM reviews WHERE research_id = ?",
       [paperId]
     );
 

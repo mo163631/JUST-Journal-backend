@@ -1,10 +1,10 @@
 import express from "express";
 import pool from "../creatDatabase/db.js";
 
-const research_in_review = express.Router();
+const researchInIreview = express.Router();
 
 //برجع الأبحاث التي حددت للباحث ولتي لم يتم تقيمها
-research_in_review.get("/:reviewerId", async (req, res) => {
+researchInIreview.get("/:reviewerId", async (req, res) => {
   const { reviewerId } = req.params;
   const connection = await pool.getConnection();
 
@@ -40,4 +40,4 @@ research_in_review.get("/:reviewerId", async (req, res) => {
   }
 });
 
-export default research_in_review;
+export default researchInIreview;

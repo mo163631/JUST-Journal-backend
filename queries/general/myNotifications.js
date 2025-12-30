@@ -1,10 +1,12 @@
 import express from "express";
 import pool from "../creatDatabase/db.js";
 
-const viewNotifications = express.Router();
+const myNotifications = express.Router();
 
 // استرجاع الإشعارات وتغيير حالتها إلى مقروءة في نفس الوقت
-viewNotifications.get("/:userId", async (req, res) => {
+// مشاهده الشعارات بحيث تكون حالة الاشعار 1 تمت المشاهده 0 جديده لم تشاهد
+// من خلال حالة الاشعارات نعرف كم عدد الاشعارات الجديده
+myNotifications.get("/:userId", async (req, res) => {
   const { userId } = req.params;
 
   try {
@@ -36,4 +38,4 @@ viewNotifications.get("/:userId", async (req, res) => {
   }
 });
 
-export default viewNotifications;
+export default myNotifications;
