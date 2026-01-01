@@ -1,6 +1,9 @@
 import express from "express";
 import pool from "../creatDatabase/db.js";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+
+const JWT_SECRET = "mySecretKey";
 
 const login = express.Router();
 
@@ -30,11 +33,24 @@ login.post("/", async (req, res) => {
       return res.status(400).json({ error: "Invalid password" });
     }
 
+    const token = jwt.sign(
+      {
+        id: user.id,
+        role: user.role,
+        email: user.email,
+      },
+      JWT_SECRET,
+      { expiresIn: "1d" }
+    );
+
     res.status(200).json({
       message: "Login successful",
-      userId: user.id,
-      userName: user.name,
-      role: user.role,
+      token,
+      user: {
+        userId: user.id,
+        userName: user.name,
+        role: user.role,
+      },
     });
   } catch (err) {
     console.error("Login error:", err);
