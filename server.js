@@ -24,8 +24,10 @@ import myNotifications from "./queries/general/myNotifications.js";
 import journalStats from "./queries/general/journalStats.js";
 import updateProfilePhoto from "./queries/profile/updateProfilePhoto.js";
 import changePassword from "./queries/profile/changePassword.js";
+import cors from 'cors';
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 createAllTables(); //لي انشاء جداول البيانات اذا لم تكن موجوده
